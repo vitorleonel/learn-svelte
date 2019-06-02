@@ -10,10 +10,10 @@
 
   beforeUpdate(() => {
     window.localStorage.setItem("tasks", JSON.stringify(tasks));
-  });
 
-  afterUpdate(() => {
-    document.title = `You have ${tasks.length} tasks for this day.`;
+    document.title = `You have ${
+      tasks.filter(task => !task.done).length
+    } tasks pending - TodoApp`;
   });
 
   function toggle(taskId) {
